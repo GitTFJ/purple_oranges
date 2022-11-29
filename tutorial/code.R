@@ -23,6 +23,10 @@ library(brinla)
 library(broom)
 library(geoR)
 
+norm_range <- function(x){
+  (x-min(x, na.rm = T))/(max(x, na.rm = T)-min(x, na.rm = T))
+}
+
 #Load abundance time series
 dat = read.csv(file.choose())
 #Search for standardised species names
