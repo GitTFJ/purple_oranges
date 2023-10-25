@@ -12,4 +12,6 @@ The repository contains four key Rmarkdown documents, which should be run in the
 
 **visualise.Rmd** - This script presents the model outputs, summaries and figures needed to reproduce the analyses presented in [CENSORED - AWAITING PUBLICATION]
 
-Any questions related to the analyses should be directed to T.F.JOHNSON(AT)SHEFFIELD.AC.UK
+Each of these scripts contains comprehensive annotation. However, if any questions related to the analyses, remaine, please contact me T.F.JOHNSON(AT)SHEFFIELD.AC.UK
+
+This is part of a larger project aimed to improve macro-scale bidoiversity models/statistics. If you are interested in working together, please get in touch!
