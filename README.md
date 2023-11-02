@@ -36,8 +36,6 @@ This is part of a larger project aimed to improve macro-scale
 bidoiversity models/statistics. If you are interested in working
 together, please get in touch!
 
-Below we present an example of how the models can be run in INLA, focussed on the CaPTrends database: https://onlinelibrary.wiley.com/doi/full/10.1111/geb.13587
-
 ### Load packages
 
 ``` r
@@ -48,7 +46,7 @@ library(brinla)
 ### Load data
 
 ``` r
-df = readRDS("../data/derived_data/analysis_list.rds")[[2]] #This is the Pilotto data
+df = readRDS("../data/derived_data/analysis_list_tutorial.rds") #This is the CaPTrends data
 ```
 
 ### Set prior
@@ -101,11 +99,11 @@ summary(m1)
     ##    = inla.mode, safe = FALSE, debug = debug, ", " .parent.frame = 
     ##    .parent.frame)") 
     ## Time used:
-    ##     Pre = 1.54, Running = 0.311, Post = 0.0231, Total = 1.87 
+    ##     Pre = 1.56, Running = 0.365, Post = 0.0229, Total = 1.95 
     ## Fixed effects:
-    ##              mean    sd 0.025quant 0.5quant 0.975quant  mode kld
-    ## (Intercept) 2.857 0.260      2.319    2.865      3.346 2.882   0
-    ## year_centre 0.040 0.002      0.036    0.040      0.043 0.040   0
+    ##             mean    sd 0.025quant 0.5quant 0.975quant  mode kld
+    ## (Intercept) 2.89 0.253      2.369    2.898      3.367 2.913   0
+    ## year_centre 0.04 0.002      0.036    0.040      0.043 0.040   0
     ## 
     ## Random effects:
     ##   Name     Model
@@ -117,21 +115,21 @@ summary(m1)
     ## 
     ## Model hyperparameters:
     ##                                             mean       sd 0.025quant 0.5quant
-    ## Precision for the Gaussian observations 4.03e+00 1.70e-01      3.772 4.01e+00
-    ## Precision for site_spec_code            1.54e+00 3.14e-01      1.049 1.50e+00
-    ## Precision for tips_code                 2.21e+04 2.65e+04   2482.733 1.42e+04
-    ## Precision for genus_code                1.32e+01 1.48e+01      1.183 8.78e+00
-    ## Precision for site_code                 2.36e-01 3.80e-02      0.173 2.32e-01
-    ## Precision for region_code               4.46e+00 6.02e+00      0.468 2.68e+00
+    ## Precision for the Gaussian observations 4.00e+00 1.16e-01      3.778 4.00e+00
+    ## Precision for site_spec_code            1.57e+00 2.92e-01      1.133 1.52e+00
+    ## Precision for tips_code                 2.01e+04 2.43e+04   1052.721 1.25e+04
+    ## Precision for genus_code                1.36e+01 1.98e+01      1.316 7.82e+00
+    ## Precision for site_code                 2.25e-01 3.40e-02      0.166 2.22e-01
+    ## Precision for region_code               1.70e+01 2.52e+01      1.254 9.58e+00
     ##                                         0.975quant     mode
-    ## Precision for the Gaussian observations   4.43e+00    3.920
-    ## Precision for site_spec_code              2.29e+00    1.400
-    ## Precision for tips_code                   9.11e+04 6356.429
-    ## Precision for genus_code                  5.23e+01    3.261
-    ## Precision for site_code                   3.23e-01    0.222
-    ## Precision for region_code                 1.97e+01    1.159
+    ## Precision for the Gaussian observations   4.23e+00    3.999
+    ## Precision for site_spec_code              2.27e+00    1.405
+    ## Precision for tips_code                   8.44e+04 2708.981
+    ## Precision for genus_code                  6.22e+01    3.230
+    ## Precision for site_code                   2.99e-01    0.216
+    ## Precision for region_code                 7.93e+01    3.261
     ## 
-    ## Marginal log-Likelihood:  -2625.25 
+    ## Marginal log-Likelihood:  -2626.30 
     ##  is computed 
     ## Posterior summaries for the linear predictor and the fitted values are computed
     ## (Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
@@ -175,11 +173,11 @@ summary(m2)
     ##    = inla.mode, safe = FALSE, debug = debug, ", " .parent.frame = 
     ##    .parent.frame)") 
     ## Time used:
-    ##     Pre = 1.48, Running = 0.332, Post = 0.0178, Total = 1.83 
+    ##     Pre = 1.42, Running = 0.312, Post = 0.0177, Total = 1.75 
     ## Fixed effects:
     ##              mean    sd 0.025quant 0.5quant 0.975quant  mode kld
     ## (Intercept) 0.000 0.007     -0.013    0.000      0.013 0.000   0
-    ## year_centre 0.022 0.017     -0.014    0.023      0.053 0.025   0
+    ## year_centre 0.023 0.015     -0.009    0.024      0.052 0.025   0
     ## 
     ## Random effects:
     ##   Name     Model
@@ -191,21 +189,21 @@ summary(m2)
     ## 
     ## Model hyperparameters:
     ##                                             mean       sd 0.025quant 0.5quant
-    ## Precision for the Gaussian observations     8.58     0.25       8.09     8.58
-    ## Precision for site_spec_code              300.93    97.75     142.71   290.20
-    ## Precision for tips_code                 15993.37 17104.48    1181.22 10763.74
-    ## Precision for genus_code                 3591.64 10812.91     187.44  1257.36
-    ## Precision for site_code                   100.19    26.57      60.10    96.09
-    ## Precision for region_code               19430.06 26722.49    1716.13 11492.28
+    ## Precision for the Gaussian observations     8.57 2.92e-01       7.94     8.59
+    ## Precision for site_spec_code              311.49 1.04e+02     146.73   298.95
+    ## Precision for tips_code                 18531.49 1.61e+04    2082.57 13921.01
+    ## Precision for genus_code                 5985.32 1.71e+04     270.03  2208.99
+    ## Precision for site_code                    97.23 2.12e+01      60.71    95.47
+    ## Precision for region_code               10185.85 9.72e+03    1103.97  7272.68
     ##                                         0.975quant    mode
-    ## Precision for the Gaussian observations       9.08    8.59
-    ## Precision for site_spec_code                522.51  269.15
-    ## Precision for tips_code                   61905.64 3287.80
-    ## Precision for genus_code                  21502.26  403.67
-    ## Precision for site_code                     163.80   87.86
-    ## Precision for region_code                 87074.33 4433.09
+    ## Precision for the Gaussian observations       9.08    8.69
+    ## Precision for site_spec_code                550.05  274.48
+    ## Precision for tips_code                   61550.88 6092.48
+    ## Precision for genus_code                  36646.81  640.30
+    ## Precision for site_code                     144.08   92.70
+    ## Precision for region_code                 37646.87 3191.43
     ## 
-    ## Marginal log-Likelihood:  -1205.26 
+    ## Marginal log-Likelihood:  -1204.40 
     ##  is computed 
     ## Posterior summaries for the linear predictor and the fitted values are computed
     ## (Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
@@ -264,11 +262,11 @@ summary(m3)
     ##    = inla.mode, safe = FALSE, debug = debug, ", " .parent.frame = 
     ##    .parent.frame)") 
     ## Time used:
-    ##     Pre = 1.62, Running = 5.87, Post = 0.0964, Total = 7.59 
+    ##     Pre = 1.67, Running = 7.48, Post = 0.236, Total = 9.39 
     ## Fixed effects:
     ##               mean    sd 0.025quant 0.5quant 0.975quant   mode kld
-    ## (Intercept) -0.002 0.011     -0.025   -0.002      0.020 -0.002   0
-    ## year_centre  0.022 0.020     -0.020    0.023      0.058  0.026   0
+    ## (Intercept) -0.002 0.012     -0.025   -0.002      0.020 -0.002   0
+    ## year_centre  0.025 0.020     -0.017    0.026      0.063  0.028   0
     ## 
     ## Random effects:
     ##   Name     Model
@@ -283,34 +281,34 @@ summary(m3)
     ## 
     ## Model hyperparameters:
     ##                                             mean       sd 0.025quant 0.5quant
-    ## Precision for the Gaussian observations 1.84e+04 3.86e+04    858.218 8.18e+03
-    ## Precision for year3                     7.97e+00 2.90e-01      7.406 7.97e+00
-    ## Rho for year3                           4.05e-01 2.10e-02      0.365 4.05e-01
-    ## Precision for site_spec_code            5.22e+02 2.56e+02    198.437 4.66e+02
-    ## Precision for tips_code2                2.46e+04 2.11e+04   2662.692 1.88e+04
-    ## Precision for tips_code                 2.70e+04 2.60e+04   2949.952 1.94e+04
-    ## Precision for genus_code                4.19e+04 5.80e+05    232.066 2.97e+03
-    ## Precision for site_code2                2.82e+04 2.67e+04   3143.928 2.04e+04
-    ## Precision for site_code                 1.07e+02 2.92e+01     60.694 1.03e+02
-    ## Precision for region_code               1.42e+04 1.70e+04   1139.430 9.05e+03
+    ## Precision for the Gaussian observations 4.48e+04 2.90e+05    617.953 7.94e+03
+    ## Precision for year3                     7.94e+00 2.92e-01      7.375 7.93e+00
+    ## Rho for year3                           4.06e-01 2.10e-02      0.365 4.06e-01
+    ## Precision for site_spec_code            5.93e+02 3.41e+02    167.868 5.18e+02
+    ## Precision for tips_code2                2.26e+04 1.99e+04   2306.571 1.69e+04
+    ## Precision for tips_code                 2.38e+04 2.61e+04   1982.523 1.59e+04
+    ## Precision for genus_code                1.46e+04 1.06e+05    206.742 2.33e+03
+    ## Precision for site_code2                2.88e+04 8.25e+04    858.776 1.00e+04
+    ## Precision for site_code                 1.07e+02 2.88e+01     60.948 1.03e+02
+    ## Precision for region_code               2.62e+04 2.95e+04   2534.756 1.73e+04
     ##                                         0.975quant     mode
-    ## Precision for the Gaussian observations   1.02e+05 2148.978
-    ## Precision for year3                       8.55e+00    7.967
-    ## Rho for year3                             4.46e-01    0.405
-    ## Precision for site_spec_code              1.18e+03  374.023
-    ## Precision for tips_code2                  8.01e+04 7760.167
-    ## Precision for tips_code                   9.61e+04 8263.421
-    ## Precision for genus_code                  2.47e+05  455.488
-    ## Precision for site_code2                  9.92e+04 8832.030
-    ## Precision for site_code                   1.75e+02   96.374
-    ## Precision for region_code                 5.95e+04 3132.759
+    ## Precision for the Gaussian observations   3.01e+05 1362.294
+    ## Precision for year3                       8.53e+00    7.927
+    ## Rho for year3                             4.47e-01    0.407
+    ## Precision for site_spec_code              1.47e+03  385.417
+    ## Precision for tips_code2                  7.53e+04 6686.569
+    ## Precision for tips_code                   9.30e+04 5499.281
+    ## Precision for genus_code                  9.71e+04  441.545
+    ## Precision for site_code2                  1.76e+05 2065.806
+    ## Precision for site_code                   1.74e+02   95.824
+    ## Precision for region_code                 1.04e+05 6874.407
     ## 
-    ## Marginal log-Likelihood:  -1386.45 
+    ## Marginal log-Likelihood:  -1386.30 
     ##  is computed 
     ## Posterior summaries for the linear predictor and the fitted values are computed
     ## (Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')
 
-    ## [1] "2023-11-02 10:22:36 GMT"
+    ## [1] "2023-11-02 10:29:25 GMT"
 
 Session info
 
