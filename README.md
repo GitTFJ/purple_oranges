@@ -36,7 +36,7 @@ This is part of a larger project aimed to improve macro-scale
 bidoiversity models/statistics. If you are interested in working
 together, please get in touch!
 
-Below we present an example of how the models can be ran in INLa using the CaPTrends database: https://onlinelibrary.wiley.com/doi/full/10.1111/geb.13587
+Below we present an example of how the models can be ran in INLA using the CaPTrends database: https://onlinelibrary.wiley.com/doi/full/10.1111/geb.13587
 
 ### Load packages
 
